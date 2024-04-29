@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+  } 
+  .wrapper{
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto; /* Enable horizontal scroll */
+    white-space: nowrap; /* Prevent line breaks */
+  }
+  .header, .footer{
+    height: 50px;
+    background: rgb(255, 255, 255);
+    color: rgb(46, 46, 46);
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+  .content {
+    display: flex;
+    flex: 1;
+    background: #999;
+    color: #000; 
+  }
+  .columns{
+    display: flex;
+    flex:1;
+  }
+  .main{
+    flex: 1;
+    order: 2;
+    background: #fff;
+  }
+  .sidebar-first{
+    width: 20%;
+    background: #ccc;
+    order: 1;
+  }
+  .sidebar-second{ 
+    width: 30%;
+    order: 3;
+    background: #ddd;
+  }
+  .green-color{
+    color: rgb(59, 231, 59);
+  }
+  .red-color{
+    color: rgb(221, 40, 40);
+  }
+  .margin-table{
+    margin: 1rem 0;
+  }
+
+.scrollable-x {
+    overflow-x: auto; /* Enable horizontal scroll */
+}

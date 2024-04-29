@@ -1,0 +1,33 @@
+<template>
+    <template lwc:if={tableData}>
+        <div class="wrapper">
+            <h2 class="header">Opportunity Products Stock in Warehouses</h2>
+            <section class="content">
+                <div class="columns">
+                <main class="main" >
+                    <div class="margin-table">
+                        <div class="scrollable-x">
+                        <lightning-datatable
+                                key-field="id"
+                                data={tableData}
+                                columns={columns}>
+                        </lightning-datatable>
+                        </div>
+                    </div>
+                </main>
+                </div>
+            </section>
+            </div>
+    </template>
+    <template lwc:else>
+        <div class="wrapper">
+            <section class="content">
+                <div class="columns">
+                <main class="main" >
+                    <h2 class="header">You don't have any products associated with this opportunity. Make sure to add your products in the sidebar.</h2>
+                </main>
+                </div>
+            </section>
+            </div>
+    </template>
+</template>
