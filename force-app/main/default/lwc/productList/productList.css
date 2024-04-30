@@ -72,7 +72,7 @@ body {
     width: 20px; /* Adjust width of color box */
     height: 20px; /* Adjust height of color box */
     margin-right: 5px; /* Adjust margin between color box and text */
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .color-box__text {
