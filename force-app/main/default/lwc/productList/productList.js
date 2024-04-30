@@ -59,7 +59,7 @@ export default class ProductList extends LightningElement {
                 console.log('Warehouse Id_____', this.warehouseId);
                 console.log('Warehouse Type_____', typeof(this.warehouseId));
     
-                getAllInventoryProducts({warehouseId: this.warehouseId})
+                getAllInventoryProducts()
                     .then(products => {
                         let productData = [];
                         products.forEach(product => {
