@@ -6,14 +6,15 @@ import getWarehouse from '@salesforce/apex/ProductController.getWarehouse';
 export default class ProductList extends LightningElement {
 
     @api columns = [
-        { label: 'Product Id', fieldName: 'id', type: 'string', cellAttributes: {class: 'slds-text-color_default'}},
-        { label: 'Image', fieldName: 'image', type: 'customImage',
-            cellAttributes: {class: 'slds-text-color_default'}
-        },
+        { label: 'Id', fieldName: 'id', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { 
           label: 'Name', fieldName: 'name',
           cellAttributes: {class: {fieldName: 'colorName'}},
         },
+        { label: 'Image', fieldName: 'image', type: 'customImage',
+        cellAttributes: {class: 'slds-text-color_default'}
+        },
+        { label: 'Color', fieldName: 'color', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Available', fieldName: 'availableItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Reserved', fieldName: 'reservedItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Sold', fieldName: 'soldItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
@@ -66,6 +67,7 @@ export default class ProductList extends LightningElement {
                                 id: '',
                                 image:'',
                                 name: '',
+                                color: '',
                                 availableItems: '',
                                 reservedItems: '',
                                 location: ''
@@ -76,6 +78,7 @@ export default class ProductList extends LightningElement {
 
                             //productRow.image = product.Product__r.Image__c;
                             productRow.image = product.Product__r.Image__c ? product.Product__r.Image__c : "https://t4.ftcdn.net/jpg/03/32/56/67/360_F_332566713_q0QLBQ0BWkG5ed7DGRiuFIjvZNwEL9k2.jpg";
+                            productRow.color = product.Product__r.Color__c ? product.Product__r.Color__c : "N/A";
                             
                             productRow.availableItems = product.Available_Items__c;
                             productRow.location = product.Product_Location__r.Name;
