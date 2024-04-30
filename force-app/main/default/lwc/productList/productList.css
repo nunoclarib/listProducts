@@ -53,3 +53,42 @@ body {
 .scrollable-x {
     overflow-x: auto; /* Enable horizontal scroll */
 }
+
+.color-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 0 2rem 0;
+}
+
+.color-box__item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.color-box__color {
+    width: 20px; /* Adjust width of color box */
+    height: 20px; /* Adjust height of color box */
+    margin-right: 5px; /* Adjust margin between color box and text */
+    border-radius: 5px;
+}
+
+.color-box__text {
+    font-size: 14px; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+}
+
+.color-box__color--green {
+    background-color: green; /* Change to desired green color */
+}
+
+.color-box__color--red {
+    background-color: red; /* Change to desired red color */
+}
+.color-box__color--yellow {
+    background-color: rgb(233, 233, 10); /* Change to desired red color */
+}
+
+
