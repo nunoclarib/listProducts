@@ -6,28 +6,24 @@
                 <div class="columns">
                 <main class="main" >
                     <div class="margin-table">
-                        <div class="scrollable-x">
-                        <lightning-datatable
+                        <div class="scrollable-x yellow-text">
+                        <c-custom-data-table
                                 key-field="id"
                                 data={tableData}
-                                columns={columns}>
-                        </lightning-datatable>
+                                columns={columns}
+                                >
+                        </c-custom-data-table>
                         </div>
                     </div>
+
                 </main>
                 </div>
             </section>
             </div>
     </template>
     <template lwc:else>
-        <div class="wrapper">
-            <section class="content">
-                <div class="columns">
-                <main class="main" >
-                    <h2 class="header">You don't have any products associated with this opportunity. Make sure to add your products in the sidebar.</h2>
-                </main>
-                </div>
-            </section>
-            </div>
+        <div>
+            <p>You don't have any products associated with this opportunity. Make sure to add your products in the sidebar.</p>
+        </div>
     </template>
 </template>
