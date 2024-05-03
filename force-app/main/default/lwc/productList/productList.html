@@ -8,15 +8,15 @@
                     <div class="margin-table">
                         <div class="scrollable-x yellow-text">
                         <c-custom-data-table
-                                key-field="id"
-                                data={tableData}
-                                columns={columns}
-                                hide-checkbox-column="true"
-                                >
+                            key-field="id"
+                            data={tableData}
+                            columns={columns}
+                            hide-checkbox-column="true"
+                            onrowaction={navigateToProductDetail}
+                        >
                         </c-custom-data-table>
                         </div>
                     </div>
-
                 </main>
                 </div>
             </section>

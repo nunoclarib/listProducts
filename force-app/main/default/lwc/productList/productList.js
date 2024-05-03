@@ -2,8 +2,9 @@ import { LightningElement, api, wire } from 'lwc';
 import getAllInventoryProducts from '@salesforce/apex/ProductController.getAllProductsFromInventory';
 import getProductsOpp from '@salesforce/apex/ProductController.getProductsFromOpportunity';
 import getWarehouse from '@salesforce/apex/ProductController.getWarehouse';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class ProductList extends LightningElement {
+export default class ProductList extends  NavigationMixin(LightningElement) {
 
     @api columns = [
         { label: 'Id', fieldName: 'id', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
@@ -12,13 +13,22 @@ export default class ProductList extends LightningElement {
           cellAttributes: {class: {fieldName: 'colorName'}},
         },
         { label: 'Image', fieldName: 'image', type: 'customImage',
-        cellAttributes: {class: 'slds-text-color_default'}
+            cellAttributes: {class: 'slds-text-color_default'}
         },
         { label: 'Color', fieldName: 'color', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Available', fieldName: 'availableItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Reserved', fieldName: 'reservedItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Sold', fieldName: 'soldItems', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
         { label: 'Location', fieldName: 'location', type: 'string', cellAttributes: {class: 'slds-text-color_default'} },
+        {
+            type: 'action',
+            typeAttributes: {
+                rowActions: [
+                    { label: 'Show Product', name: 'view' },
+                ],
+                menuAlignment: 'right'
+            }
+        } 
     ];
 
     @api tableData = [];
@@ -112,7 +122,33 @@ export default class ProductList extends LightningElement {
             })
             .catch(error => {
                 console.log('Error in fetching product data', error);
-            });
-            
+            }); 
     }
+
+    navigateToProductDetail(event) {
+        console.log('navigateToProductDetail');
+        console.log('event___', event);
+
+        const actionName = event.detail.action.name;
+        const productId = event.detail.row.id;
+
+        switch (actionName) {
+            case 'view':
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__recordPage',
+                    attributes: {
+                        recordId: productId,
+                        objectApiName: 'Product2',
+                        actionName: 'view',
+                    },
+                });
+                break;
+            case 'delete':
+                //this.deleteProduct(event);
+                break;
+            default:
+                console.log('Unknown action');
+        }
+    }
+
 }

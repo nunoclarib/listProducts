@@ -7,7 +7,6 @@ export default class CustomDataTable extends LightningDatatable {
         customImage: {
             template: customImage,
             typeAttributes: ['imageUrl']
-
         }
     }
 }
